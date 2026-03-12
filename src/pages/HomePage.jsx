@@ -120,8 +120,8 @@ export default function HomePage() {
                         Read, skim, jump, or dive deep into any chapter.
                     </p>
                     <p className="home-hero__intro">
-                        The final revelation, sent as a mercy for mankind. In it,
-                        you will find a complete way of life, explained simply across 114 chapters.
+                        The final revelation, explained through thematic summaries and historical context. 
+                        Discover the core message of every chapter, simplified for everyone.
                     </p>
                     <div className="home-hero__actions">
                         <button 

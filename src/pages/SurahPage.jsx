@@ -371,9 +371,9 @@ function AccordionSection({ sections, onContextOpen }) {
             <div className="sp-container">
                 <div className="sp-accordion-section__header animate-on-scroll">
                     <div className="section-label">What's Inside</div>
-                    <h2 className="section-title">Chapter Breakdown</h2>
+                    <h2 className="section-title">Thematic Summary & Context</h2>
                     <p className="section-subtitle">
-                        Tap any section to see what those verses are about, explained simply.
+                        Tap any section to read a summary of the core themes and background context.
                     </p>
                 </div>
                 <div className="sp-accordion animate-on-scroll" style={{ transitionDelay: '0.15s' }}>
