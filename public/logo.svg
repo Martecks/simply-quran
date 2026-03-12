@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Reference-matched minimalist flat open book logo -->
+  <!-- Left Side -->
+  <path d="M50 82 
+           C40 70, 25 50, 10 35 
+           C30 45, 45 45, 48 45 
+           L50 82 Z" 
+        fill="currentColor" />
+  
+  <path d="M48 40 
+           C40 40, 25 25, 15 15 
+           C30 25, 45 35, 48 38 
+           Z" 
+        fill="currentColor" 
+        opacity="0.9"/>
+        
+  <!-- Base stroke left -->
+  <path d="M12 90 
+           C25 80, 40 70, 48 65 
+           C40 75, 25 85, 12 90 Z"
+        fill="currentColor" 
+        opacity="0.9"/>
+
+  <!-- Right Side -->
+  <path d="M50 82 
+           C60 70, 75 50, 90 35 
+           C70 45, 55 45, 52 45 
+           L50 82 Z" 
+        fill="currentColor" />
+        
+  <path d="M52 40 
+           C60 40, 75 25, 85 15 
+           C70 25, 55 35, 52 38 
+           Z" 
+        fill="currentColor" 
+        opacity="0.9"/>
+        
+  <!-- Base stroke right -->
+  <path d="M88 90 
+           C75 80, 60 70, 52 65 
+           C60 75, 75 85, 88 90 Z"
+        fill="currentColor" 
+        opacity="0.9"/>
+</svg>

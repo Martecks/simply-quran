@@ -1,0 +1,855 @@
+/* ==========================================
+   AYAH READER — Styles
+   
+   Color strategy:
+   - Section bg: warm dark olive (not pure black)
+   - Passage headers: subtle warm surface (#1a1c16 feel)
+   - Ayah card area: slightly deeper for contrast
+   - Cards themselves: lifted with visible border + shadow
+   ========================================== */
+
+/* --- Section Container --- */
+.ayah-reader-section {
+    padding: 5rem 0 3rem;
+    background: linear-gradient(180deg,
+            transparent 0%,
+            rgba(18, 20, 14, 0.95) 6%,
+            rgba(16, 18, 12, 1) 20%,
+            rgba(16, 18, 12, 1) 80%,
+            rgba(18, 20, 14, 0.95) 94%,
+            transparent 100%);
+    position: relative;
+}
+
+/* Subtle top/bottom edge glow for visual separation */
+.ayah-reader-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(212, 168, 50, 0.12),
+            rgba(212, 168, 50, 0.2),
+            rgba(212, 168, 50, 0.12),
+            transparent);
+}
+
+/* --- CTA / Toggle Area --- */
+.ayah-reader__cta {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.ayah-reader__toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, var(--reader-accent, #d4a832), color-mix(in srgb, var(--reader-accent, #d4a832) 70%, #000));
+    color: #0a0a08;
+    font-family: 'Inter', 'Outfit', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 60px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    letter-spacing: 0.02em;
+}
+
+.ayah-reader__toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(212, 168, 50, 0.25);
+}
+
+.ayah-reader__toggle:active {
+    transform: translateY(0);
+}
+
+.ayah-reader__toggle-icon {
+    font-size: 1.2rem;
+}
+
+/* --- Reader Content --- */
+.ayah-reader__content {
+    margin-top: 1rem;
+    animation: readerFadeIn 0.5s ease;
+}
+
+@keyframes readerFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Sticky Passage Navigator --- */
+.ayah-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(16, 18, 12, 0.94);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 0.75rem 0;
+    margin: 0 -1rem;
+    overflow: hidden;
+}
+
+.ayah-nav__track {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 0 1rem;
+    scroll-behavior: smooth;
+    justify-content: flex-start;
+}
+
+.ayah-nav__track::-webkit-scrollbar {
+    display: none;
+}
+
+.ayah-nav__btn {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.15rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    min-width: max-content;
+    color: inherit;
+    font-family: inherit;
+}
+
+.ayah-nav__btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+.ayah-nav__btn--active {
+    background: rgba(212, 168, 50, 0.12);
+    border-color: var(--reader-accent, #d4a832);
+}
+
+.ayah-nav__btn-range {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--reader-accent, #d4a832);
+    font-weight: 600;
+}
+
+.ayah-nav__btn-title {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 500;
+}
+
+.ayah-nav__btn--active .ayah-nav__btn-title {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+/* --- Surah Header --- */
+.ayah-reader__surah-header {
+    text-align: center;
+    padding: 3rem 1rem 2rem;
+    margin-bottom: 1rem;
+}
+
+.ayah-reader__bismillah {
+    font-family: 'Amiri', 'Scheherazade New', 'Traditional Arabic', serif;
+    font-size: 1.8rem;
+    color: var(--reader-accent, #d4a832);
+    margin-bottom: 1.5rem;
+    line-height: 2;
+}
+
+.ayah-reader__surah-name {
+    font-family: 'Amiri', 'Scheherazade New', 'Traditional Arabic', serif;
+    font-size: 3rem;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+}
+
+.ayah-reader__surah-meta {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.45);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+/* --- Accordion Hint --- */
+.ayah-reader__accordion-hint {
+    display: block;
+    text-align: center;
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.35);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    margin: 0 auto 1.5rem;
+    padding: 0.6rem 1.4rem;
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 30px;
+    width: max-content;
+    max-width: 90%;
+}
+
+/* --- Passage Group (Accordion) --- */
+.passage-group {
+    margin-bottom: 0.75rem;
+    scroll-margin-top: 80px;
+    border-radius: 14px;
+    overflow: hidden;
+    /* Warm dark olive — NOT the same as the section background */
+    background: rgba(26, 30, 20, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.055);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.passage-group--open {
+    margin-bottom: 2rem;
+    border-color: rgba(255, 255, 255, 0.1);
+    background: rgba(26, 30, 20, 0.85);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+}
+
+/* Passage header — elevated surface for clear section breaks */
+.passage-group__header {
+    display: block;
+    width: 100%;
+    padding: 1.5rem 1.75rem 1.25rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.25s ease;
+    font-family: inherit;
+    color: inherit;
+}
+
+.passage-group__header:hover {
+    background: rgba(255, 255, 255, 0.065);
+}
+
+.passage-group--open .passage-group__header {
+    background: rgba(255, 255, 255, 0.055);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.passage-group__header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.4rem;
+}
+
+.passage-group__label {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.passage-group__range {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--reader-accent, #d4a832);
+    font-weight: 700;
+    padding: 0.2rem 0.65rem;
+    background: rgba(212, 168, 50, 0.1);
+    border-radius: 20px;
+    border: 1px solid rgba(212, 168, 50, 0.18);
+}
+
+.passage-group__ayah-count {
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.3);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.passage-group__chevron {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease, color 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 0.5rem;
+}
+
+.passage-group__chevron--open {
+    transform: rotate(180deg);
+    color: var(--reader-accent, #d4a832);
+}
+
+.passage-group__title {
+    font-family: 'Outfit', 'Inter', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.92);
+    margin: 0 0 0.3rem;
+    line-height: 1.3;
+}
+
+.passage-group__desc {
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.42);
+    line-height: 1.55;
+    max-width: 600px;
+    margin: 0;
+}
+
+/* --- Ayah Cards Area --- */
+.passage-group__ayahs {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 1.25rem 1.25rem 1.75rem;
+}
+
+.passage-group__ayahs--animated {
+    animation: passageSlideIn 0.35s ease;
+}
+
+@keyframes passageSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Ayah Card --- */
+.ayah-card {
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 14px;
+    padding: 1.5rem 1.75rem 1.25rem;
+    transition: all 0.3s ease;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.ayah-card[role="button"] {
+    cursor: pointer;
+}
+
+.ayah-card:hover {
+    background: rgba(255, 255, 255, 0.055);
+    border-color: rgba(255, 255, 255, 0.11);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.ayah-card--expanded {
+    background: rgba(212, 168, 50, 0.04);
+    border-color: rgba(212, 168, 50, 0.2);
+    box-shadow: 0 4px 20px rgba(212, 168, 50, 0.06);
+}
+
+/* Ayah number badge — tight to Arabic (proximity) */
+.ayah-card__number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.6rem;
+}
+
+.ayah-card__number span {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--reader-accent, #d4a832);
+    letter-spacing: 0.06em;
+    padding: 0.25rem 0.75rem;
+    background: rgba(212, 168, 50, 0.1);
+    border: 1px solid rgba(212, 168, 50, 0.18);
+    border-radius: 20px;
+}
+
+/* Arabic text — PRIMARY: warm, bright, the anchor of each card */
+.ayah-card__arabic {
+    font-family: 'Amiri', 'Scheherazade New', 'Traditional Arabic', serif;
+    font-size: 1.7rem;
+    line-height: 2.3;
+    color: rgba(255, 248, 230, 0.95);
+    text-align: right;
+    direction: rtl;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* English translation — SECONDARY: cooler, dimmer, supporting role */
+.ayah-card__translation {
+    font-family: 'Inter', 'Outfit', sans-serif;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: rgba(200, 210, 220, 0.62);
+    font-weight: 400;
+    padding-left: 0.25rem;
+}
+
+/* Insight section — TERTIARY: distinctly accented */
+.ayah-card__insight-wrap {
+    margin-top: 1rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.ayah-card__insight {
+    display: flex;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    background: rgba(212, 168, 50, 0.06);
+    border-left: 3px solid var(--reader-accent, #d4a832);
+    border-radius: 0 12px 12px 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease, margin 0.3s ease;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+}
+
+.ayah-card__insight--visible {
+    max-height: 300px;
+    opacity: 1;
+    padding: 1rem 1.25rem;
+    margin-top: 0.75rem;
+}
+
+.ayah-card__insight-icon {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+}
+
+.ayah-card__insight p {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: rgba(220, 210, 190, 0.6);
+    margin: 0;
+    font-style: italic;
+}
+
+.ayah-card__expand-hint {
+    font-size: 0.72rem;
+    color: rgba(212, 168, 50, 0.5);
+    text-align: right;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.ayah-card:hover .ayah-card__expand-hint {
+    color: rgba(212, 168, 50, 0.75);
+}
+
+/* --- More Verses Indicator --- */
+.ayah-reader__more {
+    text-align: center;
+    padding: 3rem 1rem;
+    margin-top: 2rem;
+    border: 1px dashed rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.015);
+}
+
+.ayah-reader__more-icon {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.ayah-reader__more p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.4);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* --- End Decoration --- */
+.ayah-reader__end {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 3rem 0 1rem;
+}
+
+.ayah-reader__end-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212, 168, 50, 0.2), transparent);
+}
+
+.ayah-reader__end-diamond {
+    width: 10px;
+    height: 10px;
+    background: var(--reader-accent, #d4a832);
+    transform: rotate(45deg);
+    opacity: 0.4;
+}
+
+/* ==========================================
+   RESPONSIVE — Tablet (iPad)
+   ========================================== */
+
+@media (max-width: 1024px) {
+    .ayah-reader-section {
+        padding: 4rem 0 2.5rem;
+    }
+
+    .ayah-reader__surah-name {
+        font-size: 2.6rem;
+    }
+
+    .passage-group__header {
+        padding: 1.4rem 1.5rem 1.15rem;
+    }
+
+    .passage-group__ayahs {
+        padding: 1.15rem 1rem 1.5rem;
+    }
+
+    .ayah-card {
+        padding: 1.35rem 1.5rem 1.15rem;
+    }
+}
+
+/* ==========================================
+   RESPONSIVE — Small Tablet / Large Phone
+   ========================================== */
+
+@media (max-width: 768px) {
+    .ayah-reader-section {
+        padding: 3rem 0 2rem;
+    }
+
+    .ayah-reader__surah-header {
+        padding: 2rem 0.75rem 1.5rem;
+    }
+
+    .ayah-reader__surah-name {
+        font-size: 2.2rem;
+    }
+
+    .ayah-reader__bismillah {
+        font-size: 1.4rem;
+    }
+
+    .ayah-reader__surah-meta {
+        font-size: 0.75rem;
+        letter-spacing: 0.06em;
+    }
+
+    /* CTA centered */
+    .ayah-reader__cta {
+        padding: 0 0.5rem;
+    }
+
+    .ayah-reader__toggle {
+        padding: 0.9rem 2rem;
+        font-size: 0.95rem;
+        width: auto;
+        max-width: 90%;
+    }
+
+    /* Nav */
+    .ayah-nav {
+        margin: 0 -0.75rem;
+        padding: 0.6rem 0;
+    }
+
+    .ayah-nav__track {
+        padding: 0 0.75rem;
+        gap: 0.4rem;
+    }
+
+    .ayah-nav__btn {
+        padding: 0.4rem 0.75rem;
+    }
+
+    .ayah-nav__btn-range {
+        font-size: 0.6rem;
+    }
+
+    .ayah-nav__btn-title {
+        font-size: 0.72rem;
+    }
+
+    /* Accordion hint */
+    .ayah-reader__accordion-hint {
+        font-size: 0.72rem;
+        padding: 0.5rem 1rem;
+    }
+
+    /* Passage groups */
+    .passage-group {
+        border-radius: 12px;
+        margin-bottom: 0.6rem;
+    }
+
+    .passage-group--open {
+        margin-bottom: 1.5rem;
+    }
+
+    .passage-group__header {
+        padding: 1.25rem 1.25rem 1rem;
+    }
+
+    .passage-group__title {
+        font-size: 1.15rem;
+    }
+
+    .passage-group__desc {
+        font-size: 0.82rem;
+    }
+
+    .passage-group__range {
+        font-size: 0.62rem;
+        padding: 0.15rem 0.55rem;
+    }
+
+    .passage-group__ayah-count {
+        font-size: 0.6rem;
+    }
+
+    /* Ayah cards */
+    .passage-group__ayahs {
+        gap: 1rem;
+        padding: 1rem 0.85rem 1.25rem;
+    }
+
+    .ayah-card {
+        padding: 1.15rem 1.25rem 1rem;
+        border-radius: 12px;
+    }
+
+    .ayah-card__arabic {
+        font-size: 1.35rem;
+        line-height: 2.1;
+    }
+
+    .ayah-card__translation {
+        font-size: 0.92rem;
+        line-height: 1.7;
+        padding-left: 0;
+    }
+
+    .ayah-card__number {
+        margin-bottom: 0.5rem;
+    }
+
+    .ayah-card__number span {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.6rem;
+    }
+
+    /* Insight */
+    .ayah-card__insight--visible {
+        padding: 0.85rem 1rem;
+    }
+
+    .ayah-card__insight p {
+        font-size: 0.82rem;
+    }
+
+    .ayah-card__expand-hint {
+        font-size: 0.65rem;
+    }
+
+    /* More indicator */
+    .ayah-reader__more {
+        padding: 2rem 1rem;
+        margin-top: 1.5rem;
+    }
+}
+
+/* ==========================================
+   RESPONSIVE — Mobile
+   ========================================== */
+
+@media (max-width: 480px) {
+    .ayah-reader-section {
+        padding: 2.5rem 0 1.5rem;
+    }
+
+    .ayah-reader__surah-header {
+        padding: 1.5rem 0.5rem 1rem;
+    }
+
+    .ayah-reader__surah-name {
+        font-size: 1.8rem;
+    }
+
+    .ayah-reader__bismillah {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .ayah-reader__surah-meta {
+        font-size: 0.65rem;
+    }
+
+    /* CTA */
+    .ayah-reader__toggle {
+        padding: 0.85rem 1.75rem;
+        font-size: 0.9rem;
+        gap: 0.5rem;
+    }
+
+    .ayah-reader__toggle-icon {
+        font-size: 1rem;
+    }
+
+    /* Nav */
+    .ayah-nav {
+        margin: 0 -0.5rem;
+    }
+
+    .ayah-nav__track {
+        padding: 0 0.5rem;
+        gap: 0.35rem;
+    }
+
+    .ayah-nav__btn {
+        padding: 0.35rem 0.6rem;
+        border-radius: 8px;
+    }
+
+    .ayah-nav__btn-range {
+        font-size: 0.55rem;
+    }
+
+    .ayah-nav__btn-title {
+        font-size: 0.65rem;
+    }
+
+    /* Accordion hint */
+    .ayah-reader__accordion-hint {
+        font-size: 0.65rem;
+        padding: 0.45rem 0.85rem;
+        letter-spacing: 0.06em;
+    }
+
+    /* Passage groups */
+    .passage-group {
+        border-radius: 10px;
+        margin-bottom: 0.5rem;
+    }
+
+    .passage-group--open {
+        margin-bottom: 1.25rem;
+    }
+
+    .passage-group__header {
+        padding: 1rem 1rem 0.85rem;
+    }
+
+    .passage-group__title {
+        font-size: 1.05rem;
+    }
+
+    .passage-group__desc {
+        font-size: 0.78rem;
+        line-height: 1.5;
+    }
+
+    .passage-group__chevron {
+        font-size: 0.95rem;
+    }
+
+    /* Ayah cards */
+    .passage-group__ayahs {
+        gap: 0.85rem;
+        padding: 0.85rem 0.65rem 1rem;
+    }
+
+    .ayah-card {
+        padding: 1rem 1rem 0.85rem;
+        border-radius: 10px;
+    }
+
+    .ayah-card__arabic {
+        font-size: 1.2rem;
+        line-height: 2;
+        margin-bottom: 0.6rem;
+        padding-bottom: 0.65rem;
+    }
+
+    .ayah-card__translation {
+        font-size: 0.88rem;
+        line-height: 1.65;
+    }
+
+    .ayah-card__number span {
+        font-size: 0.6rem;
+        padding: 0.18rem 0.55rem;
+    }
+
+    /* Insight */
+    .ayah-card__insight--visible {
+        padding: 0.75rem 0.85rem;
+    }
+
+    .ayah-card__insight p {
+        font-size: 0.78rem;
+        line-height: 1.6;
+    }
+
+    .ayah-card__insight-icon {
+        font-size: 0.95rem;
+    }
+
+    .ayah-card__expand-hint {
+        font-size: 0.6rem;
+        margin-top: 0.35rem;
+    }
+
+    /* More indicator */
+    .ayah-reader__more {
+        padding: 1.5rem 0.75rem;
+        border-radius: 12px;
+    }
+
+    .ayah-reader__more-icon {
+        font-size: 1.5rem;
+    }
+
+    .ayah-reader__more p {
+        font-size: 0.8rem;
+    }
+
+    /* End decoration */
+    .ayah-reader__end {
+        padding: 2rem 0 0.75rem;
+    }
+}

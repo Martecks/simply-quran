@@ -1,0 +1,529 @@
+/* ========================================
+   SEARCH PAGE STYLES
+   Glassmorphic design matching SurahPage
+   ======================================== */
+
+/* ===== HERO ===== */
+
+.sr-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    background: linear-gradient(170deg,
+            #0a1a0a 0%,
+            #132e13 30%,
+            #1a4a1a 60%,
+            #2d6a2d 100%);
+    overflow: hidden;
+    padding: 5rem 2rem 4rem;
+}
+
+.sr-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 25% 35%, rgba(212, 168, 50, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 75% 65%, rgba(255, 255, 255, 0.03) 0%, transparent 40%);
+}
+
+.sr-hero__pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.02;
+    background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 50px, rgba(255, 255, 255, 0.4) 50px, rgba(255, 255, 255, 0.4) 51px),
+        repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(255, 255, 255, 0.4) 50px, rgba(255, 255, 255, 0.4) 51px);
+}
+
+.sr-hero__content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 720px;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.sr-back-link {
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.50);
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding: 0.4rem 0.85rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.2s ease;
+    margin-bottom: 2rem;
+}
+
+.sr-back-link:hover {
+    color: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.sr-hero__title {
+    font-family: var(--font-body);
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 2rem;
+    line-height: 1.3;
+}
+
+.sr-hero__query {
+    background: linear-gradient(135deg, var(--gold-300), var(--gold-500));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ===== SEARCH BAR ===== */
+
+.sr-search-form {
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.sr-search-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 14px;
+    padding: 0.9rem 1.25rem;
+    transition: all 0.3s ease;
+}
+
+.sr-search-bar:focus-within {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+}
+
+.sr-search-bar__icon {
+    color: rgba(255, 255, 255, 0.4);
+    flex-shrink: 0;
+}
+
+.sr-search-bar__input {
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.3px;
+}
+
+.sr-search-bar__input::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+/* ===== KEYWORD CHIPS ===== */
+
+.sr-keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.sr-keyword {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 100px;
+    padding: 0.4rem 1rem;
+    color: rgba(255, 255, 255, 0.55);
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    letter-spacing: 0.3px;
+}
+
+.sr-keyword:hover {
+    background: rgba(255, 255, 255, 0.14);
+    color: rgba(255, 255, 255, 0.85);
+    border-color: rgba(255, 255, 255, 0.20);
+}
+
+/* ===== BODY / CONTAINER ===== */
+
+.sr-body {
+    max-width: 920px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+    margin-top: -2rem;
+    position: relative;
+    z-index: 2;
+    padding: 2rem 0;
+    min-height: 30vh;
+    margin-bottom: 0;
+}
+
+.sr-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+}
+
+/* ===== RESULTS INFO ===== */
+
+.sr-results-info {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-bottom: 2rem;
+    letter-spacing: 0.3px;
+}
+
+/* ===== EMPTY STATE ===== */
+
+.sr-empty {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.sr-empty__icon {
+    color: var(--text-muted);
+    opacity: 0.3;
+    margin-bottom: 1.5rem;
+}
+
+.sr-empty__title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.sr-empty__text {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+/* ===== SURAH RESULT GROUP ===== */
+
+.sr-group {
+    margin-bottom: 2.5rem;
+}
+
+.sr-group__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    margin-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.sr-group__info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sr-group__number {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    background: var(--cream);
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    letter-spacing: 0.5px;
+}
+
+.sr-group__name {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--green-600);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.sr-group__name:hover {
+    color: var(--green-500);
+}
+
+.sr-group__meaning {
+    font-weight: 400;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.sr-group__meta {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+    letter-spacing: 0.3px;
+}
+
+.sr-group__count {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    background: var(--cream);
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    white-space: nowrap;
+}
+
+/* ===== ACCORDION (mirrors SurahPage) ===== */
+
+.sr-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.sr-accordion__item {
+    background:
+        linear-gradient(135deg, var(--cat-bg, rgba(0, 0, 0, 0.03)), transparent 70%),
+        rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    border-left: 3px solid var(--cat-color, transparent);
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.03);
+}
+
+.sr-accordion__item:hover {
+    background:
+        linear-gradient(135deg, var(--cat-bg, rgba(0, 0, 0, 0.04)), transparent 60%),
+        rgba(255, 255, 255, 0.65);
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
+}
+
+.sr-accordion__item--open {
+    background:
+        linear-gradient(135deg, var(--cat-bg, rgba(0, 0, 0, 0.04)), transparent 50%),
+        rgba(255, 255, 255, 0.85);
+    border-left-color: var(--cat-color, #0f4f0f);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+.sr-accordion__trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.1rem 1.25rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    border-radius: 12px;
+}
+
+.sr-accordion__trigger-left {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    flex: 1;
+    min-width: 0;
+}
+
+.sr-accordion__number {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    padding-top: 0.2rem;
+    flex-shrink: 0;
+    opacity: 0.4;
+}
+
+.sr-accordion__trigger-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.sr-accordion__title {
+    font-family: var(--font-body);
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.35;
+    margin-bottom: 0.15rem;
+}
+
+.sr-accordion__verse-range {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.sr-accordion__trigger-right {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+}
+
+.sr-accordion__category {
+    font-size: 0.58rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 100px;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+
+.sr-accordion__chevron {
+    color: var(--text-muted);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+}
+
+.sr-accordion__item--open .sr-accordion__chevron {
+    transform: rotate(180deg);
+}
+
+.sr-accordion__content-wrapper {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sr-accordion__content {
+    padding: 0 1.25rem 1.25rem 2.75rem;
+}
+
+/* Subsections */
+
+.sr-subsection {
+    padding: 0.85rem 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.sr-subsection:first-child {
+    border-top: none;
+    padding-top: 0.4rem;
+}
+
+.sr-subsection__header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 0.4rem;
+    flex-wrap: wrap;
+}
+
+.sr-subsection__heading {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.sr-subsection__verses {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.sr-subsection__summary {
+    font-size: 0.85rem;
+    line-height: 1.75;
+    color: var(--text-secondary);
+}
+
+/* ===== FOOTER ===== */
+
+.sr-footer {
+    background: linear-gradient(170deg, #0a1a0a, #132e13);
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.sr-footer__arabic {
+    font-family: var(--font-arabic);
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 0.75rem;
+    direction: rtl;
+}
+
+.sr-footer__text {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.35);
+    font-style: italic;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 768px) {
+    .sr-hero {
+        padding: 4rem 1.5rem 3rem;
+    }
+
+    .sr-hero__title {
+        font-size: 1.4rem;
+    }
+
+    .sr-body {
+        margin-left: 0.75rem;
+        margin-right: 0.75rem;
+        border-radius: 16px;
+    }
+
+    .sr-container {
+        padding: 0 1.5rem;
+    }
+
+    .sr-accordion__trigger {
+        padding: 0.9rem 0.75rem;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+    }
+
+    .sr-accordion__content {
+        padding: 0 0.75rem 1rem 1.5rem;
+    }
+
+    .sr-group__header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .sr-body {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        border-radius: 12px;
+    }
+
+    .sr-container {
+        padding: 0 1rem;
+    }
+
+    .sr-keyword {
+        font-size: 0.72rem;
+        padding: 0.35rem 0.8rem;
+    }
+}

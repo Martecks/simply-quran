@@ -1,0 +1,73 @@
+/* ===== STICKY NAV ===== */
+.sticky-nav {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 9999;
+  display: flex;
+  gap: 8px;
+  animation: fadeInNav 0.6s ease-out;
+}
+
+@keyframes fadeInNav {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.sticky-nav__btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 100px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Journey button — dark pill w/ gold text, works on light AND dark bgs */
+.sticky-nav__btn--journey {
+  background: rgba(15, 15, 15, 0.85);
+  color: #ffd700;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+.sticky-nav__btn--journey:hover {
+  background: rgba(15, 15, 15, 0.95);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  border-color: rgba(255, 215, 0, 0.4);
+}
+
+/* All Chapters button — dark pill w/ white text */
+.sticky-nav__btn--chapters {
+  background: rgba(15, 15, 15, 0.8);
+  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+.sticky-nav__btn--chapters:hover {
+  background: rgba(15, 15, 15, 0.95);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 768px) {
+  .sticky-nav {
+    top: 8px;
+    right: 8px;
+    gap: 6px;
+  }
+
+  .sticky-nav__btn {
+    padding: 8px 14px;
+    font-size: 0.7rem;
+  }
+}

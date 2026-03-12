@@ -1,0 +1,370 @@
+.journey-container {
+  min-height: 100vh;
+  background: #020408;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Texture overlay */
+.journey-container::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Parallax Viewport */
+.parallax-viewport {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.parallax-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  will-change: transform, opacity;
+}
+
+.layer-sky {
+  background-image: radial-gradient(circle at center, #1a1b3a 0%, #020408 100%);
+  z-index: 1;
+}
+
+.layer-visual {
+  z-index: 3;
+  filter: brightness(0.45) contrast(1.15) saturate(0.9);
+}
+
+.mist-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(2, 4, 8, 0.65) 100%);
+  z-index: 4;
+}
+
+.layer-particles {
+  z-index: 5;
+  background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+  opacity: 0.08;
+  mix-blend-mode: screen;
+  animation: particleDrift 120s linear infinite;
+}
+
+@keyframes particleDrift {
+  from { background-position: 0 0; }
+  to { background-position: 1000px 1000px; }
+}
+
+/* ===== HERO ===== */
+.journey-hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 40px;
+  position: relative;
+  z-index: 20;
+}
+
+.journey-hero h1 {
+  font-size: clamp(3rem, 12vw, 8rem);
+  font-weight: 800;
+  line-height: 0.9;
+  margin-bottom: 32px;
+  background: linear-gradient(to bottom, #fff, #777);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -4px;
+}
+
+.journey-hero__subtitle {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  color: #999;
+  max-width: 700px;
+  line-height: 1.5;
+  margin: 0 auto;
+}
+
+.journey-conclusion {
+  min-height: 80vh;
+  background: rgba(2, 4, 8, 0.6);
+}
+
+.journey-home-link {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 14px 32px;
+  background: rgba(255, 215, 0, 0.1);
+  color: #ffd700;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.journey-home-link:hover {
+  background: rgba(255, 215, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+/* ===== TIMELINE SPINE ===== */
+.timeline-spine {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, 
+    transparent, 
+    rgba(255, 215, 0, 0.35) 10%, 
+    rgba(255, 215, 0, 0.35) 90%, 
+    transparent
+  );
+  z-index: 10;
+}
+
+/* ===== ERA SECTIONS (all center-aligned) ===== */
+.era-section {
+  min-height: 120vh;
+  padding: 200px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 20;
+}
+
+.era-header {
+  margin-bottom: 100px;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.era-year {
+  font-family: 'Space Mono', monospace;
+  color: #ffd700;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.era-title {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -2px;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.era-location {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #ffd700;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 32px;
+}
+
+.era-description {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  color: #bbb;
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ===== CENTERED EVENT CARDS ===== */
+.era-events-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+  width: 100%;
+}
+
+.event-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.event-marker {
+  width: 20px;
+  height: 20px;
+  background: #ffd700;
+  border-radius: 50%;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 12;
+}
+
+.event-box {
+  background: rgba(2, 4, 8, 0.85);
+  backdrop-filter: blur(20px);
+  padding: 36px 48px;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  max-width: 550px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.event-box h4 {
+  font-size: 1.3rem;
+  color: #ffd700;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.event-box p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #ccc;
+}
+
+/* ===== SURAH LIST ===== */
+.surah-list {
+  margin-top: 120px;
+  max-width: 800px;
+  width: 100%;
+  padding: 48px 40px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 32px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.surah-list__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #ffd700;
+  margin-bottom: 28px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.surah-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.surah-chip {
+  background: rgba(255, 215, 0, 0.06);
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 100px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.surah-chip:hover {
+  background: rgba(255, 215, 0, 0.15);
+  border-color: #ffd700;
+  color: #ffd700;
+  transform: translateY(-2px);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .journey-hero h1 { font-size: 3.5rem; letter-spacing: -2px; }
+  .era-title { font-size: 2.5rem; }
+  .era-section { padding: 120px 16px; min-height: auto; }
+  .event-box { padding: 28px 24px; }
+  .surah-list { padding: 32px 20px; }
+  .timeline-spine { display: none; }
+}
+
+@media (max-width: 480px) {
+  .journey-hero h1 { font-size: 2.5rem; }
+  .era-title { font-size: 2rem; }
+  .journey-hero__subtitle { font-size: 1rem; }
+}
+/* ===== FLOATING HOME BUTTON ===== */
+.floating-home-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  background: rgba(15, 15, 15, 0.85);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 12px 24px;
+  border-radius: 100px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.floating-home-btn:hover {
+  background: rgba(20, 20, 20, 0.95);
+  color: #fff;
+  border-color: rgba(255, 215, 0, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 768px) {
+  .floating-home-btn {
+    bottom: 16px;
+    right: 16px;
+    padding: 10px 18px;
+    font-size: 0.8rem;
+  }
+}
