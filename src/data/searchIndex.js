@@ -185,32 +185,48 @@ function searchSections(query) {
     if (!query || !query.trim()) return [];
 
     const q = query.toLowerCase().trim();
+    // Normalize for Latin name matching (remove hyphens, spaces, apostrophes)
+    const qNorm = q.replace(/['\s-]/g, '');
 
     // Find relevant keyword synonyms to broaden the search
     const matchedKeyword = KEYWORDS.find(
         (k) => k.label.toLowerCase() === q || k.synonyms.some((s) => s.includes(q) || q.includes(s))
     );
-    const searchTerms = matchedKeyword ? [q, ...matchedKeyword.synonyms] : [q];
+    const searchTerms = matchedKeyword ? [q, ...matchedKeyword.synonyms].map(t => t.toLowerCase()) : [q];
 
     const results = [];
 
     ALL_SURAHS.forEach((chapter) => {
+        const meta = chapter.meta;
+        
+        // CHECK CHAPTER METADATA MATCH
+        const isChapterMatch = 
+            meta.name.toLowerCase().replace(/['\s-]/g, '').includes(qNorm) || 
+            meta.meaning.toLowerCase().replace(/['\s-]/g, '').includes(qNorm) || 
+            meta.arabicName.includes(q) ||
+            meta.number.toString() === q;
+
         const matchingSections = [];
 
         chapter.sections.forEach((section) => {
-            // Search in section title, category, subsection headings & summaries
-            const sectionText = [
-                section.title,
-                section.category,
-                ...section.subsections.map((sub) => `${sub.heading} ${sub.summary}`),
-            ]
-                .join(' ')
-                .toLowerCase();
-
-            const matches = searchTerms.some((term) => sectionText.includes(term));
-
-            if (matches) {
+            // If it's a chapter name match, include all sections
+            if (isChapterMatch) {
                 matchingSections.push(section);
+            } else {
+                // Search in section title, category, subsection headings & summaries
+                const sectionText = [
+                    section.title,
+                    section.category,
+                    ...section.subsections.map((sub) => `${sub.heading} ${sub.summary}`),
+                ]
+                    .join(' ')
+                    .toLowerCase();
+
+                const matches = searchTerms.some((term) => sectionText.includes(term));
+
+                if (matches) {
+                    matchingSections.push(section);
+                }
             }
         });
 
