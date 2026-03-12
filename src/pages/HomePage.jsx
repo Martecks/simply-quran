@@ -117,7 +117,7 @@ export default function HomePage() {
                         <span className="home-hero__title-accent"> Quran</span>
                     </h1>
                     <p className="home-hero__subtitle">
-                        Read, skim, jump, and dive deep into every chapter.
+                        Read, skim, jump, or dive deep into any chapter.
                     </p>
                     <p className="home-hero__intro">
                         The final revelation, sent as a mercy for mankind. In it,

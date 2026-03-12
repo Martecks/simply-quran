@@ -57,6 +57,7 @@
     width: 96px;
     height: 96px;
     opacity: 1;
+    filter: brightness(0) invert(1);
 }
 
 /* ===== TITLE ===== */
