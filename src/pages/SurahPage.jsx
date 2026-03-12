@@ -359,7 +359,7 @@ function AccordionItem({ section, isOpen, onToggle, index, onContextOpen }) {
 }
 
 function AccordionSection({ sections, onContextOpen }) {
-    const [openIndex, setOpenIndex] = useState(0);
+    const [openIndex, setOpenIndex] = useState(-1);
     const containerRef = useScrollAnimation();
 
     const handleToggle = (index) => {

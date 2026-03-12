@@ -138,9 +138,7 @@ export default function AyahReader({ surahData, accentColor = '#d4a832' }) {
     const isShortSurah = totalLoadedAyahs <= 20;
 
     // For short surahs, all passages start open. For long surahs, only the first.
-    const [openPassageId, setOpenPassageId] = useState(
-        isShortSurah ? '__all__' : surahData.passages[0]?.id || ''
-    );
+    const [openPassageId, setOpenPassageId] = useState('');
     const [activePassageId, setActivePassageId] = useState(surahData.passages[0]?.id || '');
     const [expandedAyah, setExpandedAyah] = useState(null);
     const readerRef = useRef(null);
